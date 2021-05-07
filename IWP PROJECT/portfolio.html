@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="portfolio.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <title>Portfolio</title>
+</head>
+<body >
+    <!--header-->
+    <header>
+        <a href="#" class="logo">Portfolio</a>
+        <div class="toggle"></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+    <section class="banner">
+        <div class="textBx">
+            <h2>Hello, I'm<br><span> Aura</span></h2>
+            <h3>I'm a Web Developer.</h3>
+            <a href="#about" class="btn">About Me</a>
+        </div>
+        <div class="square1"></div><div class="square2"></div>
+        <img src="nana.PNG" alt="" class="main_img" style=" clip-path: ellipse(200px 200px at 50% 50%); width: 400px; z-index: 2;" >
+    </section>
+    <section class="about" id="about">
+        <div class="heading">
+            <h2>About Me</h2><hr class="line">
+        </div>
+        <div class="content">
+            <div class="contentBx w50">
+                <h3>I'm a Web Developer</h3>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia ate sunt enim repellend voluptate debitis, officiis dolorem
+                  quod laborum vero doloribus aliquid et neque beatae corrupti dicta necessitatibus modi architecto reprehenderit dolorum in 
+                  laudantium esse minus ducimus! Eius voluptatum, amet quis repellat dignissimos aspernatur quasi expedita deserunt tempore ad? <br>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio modi est impedit veniam illum nostrum, debitis voluptas, blanditiis
+                  dicta nobis quia sit. Libero, accusantium earum! <br><br>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur, 
+                  similique! Autem sed rem nesciunt doloribus, iusto tempora consequatur nobis saepe eveniet pariatur voluptas, ex quis soluta 
+                   illo dolore placeat praesentium laboriosam aperiam totam. Consectetur illo unde in id, a aut soluta eveniet dolor accusantium 
+                   aliquam. <br>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos maxime nulla nobis, alias dolorem totam natus. Quis
+                    nobis itaque praesentium culpa quos laborum deserunt eius?
+                </p>
+            </div>
+            <div class="w50">
+              <img src="aboutme.svg" alt="" class="img" >
+            </div>
+        </div>
+    </section>
+    <section class="work" id="work">
+        <div class="heading">
+            <h2>My Latest Work</h2><hr class="line"><br>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo at nemo recusandae incidunt sit volup</p>
+        </div>
+        <div class="content">
+            <div class="workBx">
+              <!--Add Your Work Just By Changing image source to yours-->>
+                <img src="webpage1.webp" alt="">
+            </div>
+            <div class="workBx">
+              <img src="webpage2.jpg" alt="">
+          </div> 
+          <div class="workBx">
+              <img src="webpage3.webp" alt="">
+          </div> 
+          <div class="workBx">
+              <img src="webpage4.webp" alt="">
+          </div> 
+        </div>
+        <div class="heading">
+            <a href="#" class="btn">View More</a>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="heading white">
+            <h2>Contact Us</h2><br>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, modi.</p>
+        </div>
+        <div class="content">
+            <div class="contactInfoBox">
+              <h3> Contact Info</h3>
+                <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-map-marker"></i>
+                      </div>
+                      <div class="text">
+                          <h3>Address</h3>
+                          <p><!--Write Your address here-->A-803 Sugar Plaza,<br>New Road,<br>North Carolina,<br>90870</p>
+                      </div>
+                  </div>
+                  <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-phone"></i>
+                      </div>
+                      <div class="text right">
+                          <h3>Phone </h3>
+                          <p><!--Write Your Phone number here-->186-287-679</p>
+                      </div>
+                  </div>
+                  <div class="box">
+                      <div class="icon">
+                          <i class="fa fa-envelope"></i>
+                      </div>
+                      <div class="text">
+                          <h3>Email</h3>
+                          <p><!--Write Your Email id here-->aura234@gmail.com</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </section>
+    <script type="text/javascript">
+      window.addEventListener('scroll',function(){
+          var header=document.querySelector('header');
+          header.classList.toggle('sticky',window.scrollY>0);
+      });
+    </script>
+</body>
+</html>

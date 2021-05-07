@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Designer</title>
+    <link rel="stylesheet" href="portfolio2.css">
+    <!--Linking to bootstrap icons-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body>
+  <!--Navigation bar-->
+    <header>
+        <a href="#" class="logo">Portfolio</a>
+        <div class="toggle"><!--Toggle class to make header sticky throughout the page using js--></div>
+        <!--Manipulate the navigation according to your need-->
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </header>
+  <section class="banner">
+      <div class="textBx">
+        <!--Write your name and about you-->
+          <h2>Hello, I'm<br><span> Jefferson Nevarez</span></h2>
+          <h3>I'm a Graphic Designer.</h3>
+          <a href="#about" class="btn">About Me</a>
+      </div>
+  </section>  
+  <section class="about" id="about">
+      <div class="heading">
+          <h2>About Me</h2>
+      </div>
+      <div class="content">
+          <div class="contentBx w50">
+            <!--Write About you-->
+              <h3>I'm a Graphic Designer</h3>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia atque laborum quasi ratione cum optio doloremque distinctio temporibus saepe eos! Rerum quidem, ut quos nisi ducimus deleniti voluptatibus, nulla nobis esse unde ad. Qui, porro corporis sapiente cupiditate vitae ipsam quasi? Accusantium vitae ratione asperiores dignissimos, quis corporis incidunt nobis facilis voluptatem distinctio! Eveniet rem eius quod odit nulla soluta, laudantium libero distinctio veniam placeat facere dolore, rerum ipsum ipsa impedit. Fugiat ipsa ab ratione voluptatum ducimus. Officiis repudiandae temporibus commodi eligendi dolor sapiente voluptatum incidunt dicta at suscipit asperiores, esse eius nisi atque? Ipsam accusantium architecto voluptate inventore adipisci.<br><br>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi vitae sunt enim repellendus totam rem blanditiis, cumque, alias est laboriosam dolore soluta officia? Tenetur voluptate debitis, officiis dolorem asperiores quod laborum vero doloribus aliquid et neque beatae corrupti dicta necessitatibus modi architecto reprehenderit dolorum in laudantium esse minus ducimus! Eius voluptatum, amet quis repellat dignissimos aspernatur quasi expedita deserunt tempore ad? 
+              </p>
+          </div>
+          <div class="w50">
+            <!--Use a picture that you like or maybe remove it-->
+            <img src="img1.jpg" alt="" class="img">
+          </div>
+      </div>
+  </section>
+  <section class="services" id="services">
+      <div class="heading white">
+          <h2>Our Services</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+        </div>
+        <div class="content">
+          <div class="servicesBx">
+            <img src="icon1.png" alt="">
+            <!--About skills you know-->
+            <!--Common skills of a designer are mentoioned below-->
+            <h2>Illustrator</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+          </div>
+        <div class="servicesBx">
+          <img src="icon2.png" alt="">
+          <h2>Photoshop</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+      </div>
+        <div class="servicesBx">
+          <img src="icon3.png" alt="">
+          <h2>FileStag</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+      </div>
+        <div class="servicesBx">
+          <img src="icon4.png" alt="">
+          <h2>PicsArt</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+      </div>
+        <div class="servicesBx">
+          <img src="icon5.png" alt="">
+          <h2>Bannersnack</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+      </div>
+        <div class="servicesBx">
+          <img src="icon6.png" alt="">
+          <h2>DesignBold</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse aspernatur numquam aliquam quasi accusamus repellendus.</p>
+      </div>
+    </div>
+  </section>
+  <section class="work" id="work">
+      <div class="heading">
+          <h2>Our Latest Work</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo at nemo recusandae incidunt sit volup</p>
+      </div>
+      <div class="content">
+          <div class="workBx">
+            <!--Add Your Work Just By Changing image source to yours-->
+              <img src="product1.jpg" alt="">
+          </div>
+          <div class="workBx">
+            <img src="product2.jpg" alt="">
+        </div> 
+        <div class="workBx">
+            <img src="product3.jpg" alt="">
+        </div> 
+        <div class="workBx">
+            <img src="product4.jpg" alt="">
+        </div> 
+      </div>
+      <div class="heading">
+          <a href="#" class="btn">View More</a>
+      </div>
+  </section>
+  <section class="contact" id="contact">
+      <div class="heading white">
+          <h2>Contact Us</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum, modi.</p>
+      </div>
+      <div class="content">
+          <div class="contactInfoBox">
+            <!--COntact information-->
+            <h3> Contact Info</h3>
+              <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-map-marker"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p><!--Write Your address here-->A-803 Sugar Plaza,<br>New Road,<br>North Carolina,<br>90870</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-phone"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Phone </h3>
+                        <p><!--Write Your Phone number here-->186-287-679</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <i class="fa fa-envelope"></i>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p><!--Write Your Email id here-->jefferson28@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section><!--Toggle function definition-->
+  <script type="text/javascript">
+    window.addEventListener('scroll',function(){
+        var header=document.querySelector('header');
+        header.classList.toggle('sticky',window.scrollY>0);
+    });
+  </script>
+</body>
+</html>
