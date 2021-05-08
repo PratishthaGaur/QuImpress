@@ -14,9 +14,9 @@ include('connection.php')
 </head>
 
 <body>
-    
+     
     <div class="login-box" id="signinForm">
-        <form method="POST" class="form">
+       <form method="POST" class="form">
         <h1>Login</h1>
         <div class="textbox">
             <i class="fa fa-user" aria-hidden="true"></i>
@@ -29,14 +29,16 @@ include('connection.php')
         What do you want to build ?<br>
         <div class="Radio">
             
-            CV <input type="radio" name="choice" value="CV">
-            Portfolio<input type="radio" name="choice" value="Portfolio">
+           <input type="radio" name="choice" value="CV">  CV <br>
+            <input type="radio" name="choice" value="Portfolio"> Portfolio <br>
         </div>
+
         <input type="submit" class="btn" value="Sign-in" name="signin" onclick="signInValidation()">
-        <p>New User.?</p>
-        <button class="open-button" onclick="openForm()">Sign-Up</button>
+        <p>New User ?</p>
+        <input type="button" value="Sign Up" class="open-button" onclick="openForm()">
+        </form>
     </div>
-</form>
+
     <div class="form-popup" id="myForm">
         <form method="POST" class="form-container">
             <h1>Sign-Up</h1>
@@ -74,7 +76,7 @@ if(isset($_POST['sub']))
             $UserID=$_POST['us'];
             $Password=$_POST['psw'];
 
-            $q=$db->prepare("INSERT INTO signup (FirstName,LastName,Email,DOB,UID,Pass) VALUES(:Fn,:Ln,:DOB,:email,:us,:psw)");
+            $q=$db->prepare("INSERT INTO signup1 (FirstName,LastName,Email,DOB,UID,Pass) VALUES(:Fn,:Ln,:email,:DOB,:us,:psw)");
             $q->bindValue('Fn',$FName);
             $q->bindValue('Ln',$LName);
             $q->bindValue('DOB',$DOB);
@@ -90,17 +92,18 @@ if(isset($_POST['sub']))
                 echo"<script>alert('Error')</script>";
             }
         }
+
     if(isset($_POST['signin']))
         {
           $un=$_POST['UID'];
           $ps=$_POST['Pass'];
           $type=$_POST['choice'];
-                $q1=$db->prepare("SELECT *FROM signup WHERE UID='$un' && Pass='$ps'");
+                $q1=$db->prepare("SELECT *FROM signup1 WHERE UID='$un' && Pass='$ps'");
                  $q1->execute();
                  $res=$q1->fetchAll(PDO::FETCH_OBJ);
                  if($res)
                  {
-                    $q2=$db->prepare("INSERT INTO user_signin (UserID,Type) VALUES(:UID,:choice)");
+                    $q2=$db->prepare("INSERT INTO user_signin1 (UserID,Type) VALUES(:UID,:choice)");
                     $q2->bindValue('UID',$un);
                     $q2->bindValue('choice',$type);
                     if($q2->execute())
@@ -117,19 +120,20 @@ if(isset($_POST['sub']))
                     echo "<script>alert('Wrong User')</script>";
                  }
             }   
+           
             ?>
             <script>
-        function openForm() {
-            document.getElementById("myForm").style.display = "block";
-        }
-        function signInValidation(){
-            if(document.getElementsByName('UID').VALUES=="")
-                alert("Enter Username");
-        }
-        function closeForm() {
-            document.getElementById("myForm").style.display = "none";
-        }
-    </script>
+                 function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
+            function signInValidation(){
+                if(document.getElementsByName('UID').VALUES=="")
+                    alert("Enter Username");
+            }
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
+            }
+            </script>
 </body>
 
 </html>

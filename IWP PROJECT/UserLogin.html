@@ -27,16 +27,13 @@ include('connection.php')
         </div>
         What do you want to build ?<br>
         <div class="Radio">
-            
+
             CV <input type="radio" name="CV/portfolio">
             Portfolio<input type="radio" name="CV/portfolio">
         </div>
         <input type="button" class="btn" value="Sign-in">
         <p>New User.?</p>
         <button class="open-button" onclick="openForm()">Sign-Up</button>
-
-       
-
     </div>
     <div class="form-popup" id="myForm">
         <form action="/action_page.php" class="form-container">
@@ -47,16 +44,16 @@ include('connection.php')
 
             <label for="Ln"><b>Last Name</b></label>
             <input type="text" placeholder="Enter Last Name" name="Ln" required>
-            
+
             <label for="DOB"><b>Date of Birth</b></label>
             <input type="date" placeholder="Enter Date of Birth" name="DOb" required>
-            
+
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" required>
-            
+
 
             <button type="submit" class="btn">Sign-Up</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
