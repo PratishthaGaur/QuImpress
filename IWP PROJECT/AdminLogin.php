@@ -2,10 +2,8 @@
 <?php 
 include('connection.php')
  ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,9 +11,8 @@ include('connection.php')
     <title>Login Form</title>
     <link rel="stylesheet" href="login.css">
 </head>
-
 <body>
-    <form method="POST">
+    <form name="myForm" onsubmit="return validate()" method="post">
     <div class="login-box">
         <h1>Login</h1>
         <div class="textbox">
@@ -35,7 +32,7 @@ include('connection.php')
     
     <?php
             if(isset($_POST['sub']))
-            {
+            {  
                 $un=$_POST['un'];
                  $ps=$_POST['ps'];
                  $q=$db->prepare("SELECT *FROM admin WHERE UID='$un' && Pass='$ps'");
@@ -51,6 +48,25 @@ include('connection.php')
                  }
             }   
             ?>
+            <script>
+                function validate(){
+                   if( document.forms["myForm"]["un"].value==""){
+                        alert("Enter Username");
+                        document.forms["myForm"]["un"].focus();
+                        return false;
+                        }
+                   if(document.forms["myForm"]["ps"].value=="") {
+                       alert("Enter Password");
+                       document.forms["myForm"]["ps"].focus();
+                       return false;
+                       }
+                       if(document.forms["myForm"]["ps"].value.length>12){
+                           alert("Invalid Password");
+                           document.forms["myForm"]["ps"].focus();
+                           return false;
+                       }
+                }
+            </script>
 </body>
 
 </html>
