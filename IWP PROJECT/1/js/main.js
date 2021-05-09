@@ -29,22 +29,12 @@ $('input[name="sectionToggle"]').change(function(){
 });
 
 
-function template(value)
+function template()
 {
-	if(value=='default')
-	{
-		$('#defaultTemplateBtn').removeClass('btn-default').addClass('btn-danger');
-		$('#customTemplateBtn').removeClass('btn-danger').addClass('btn-default');
-		$('#customTemplateOptions').hide();
-		for(i=0;i<defaultTemplateVars.length;i++)
-			$('#'+defaultTemplateVars[i]).click();
-	}
-	else
-	{
-		$('#customTemplateBtn').removeClass('btn-default').addClass('btn-danger');
+	    $('#customTemplateBtn').removeClass('btn-default').addClass('btn-danger');
 		$('#defaultTemplateBtn').removeClass('btn-danger').addClass('btn-default');
 		$('#customTemplateOptions').show();
-	}
+	
 }
 
 function toggleSection(sectionName,toggleState)
