@@ -40,7 +40,7 @@ include('connection.php')
                  $res=$q->fetchAll(PDO::FETCH_OBJ);
                  if($res)
                  {
-                    header("Location:admin.php");
+                    header("Location:admin.html");
                  }
                  else
                  {
