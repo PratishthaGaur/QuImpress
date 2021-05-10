@@ -1,3 +1,6 @@
+<?php 
+include('connection.php');
+ ?>
 <html>
 <head>
 	<title>Resume Builder</title>
@@ -23,7 +26,7 @@
 			<div id="panel">
 					<h3 class="text-center" data-toggle="modal">Resume</h3>
              <!--   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button> -->
-				<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
+				<button class="btn btn-block btn-success" onclick="download();" >Download</button>
 
 				<hr>
 
@@ -573,7 +576,28 @@
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
-
+<script>
+	function download()
+	{
+		console.log("hello");
+		<?php
+		  $Type="CV";
+		  $type_id=1;
+		  $UserID=$db->query("SELECT UserID FROM user_signin1 where UserID ='".$_SESSION['username']."'");
+		  $q=$db->prepare("INSERT INTO download1(UserID,Type,type_id) VALUES(:UserID,:Type,:type_id)");
+		  $q->bindValue('UserID',$UserID);
+		  $q->bindValue('Type',$Type); 
+		  $q->bindValue('type_id',$type_id);
+		  if($q->execute())
+		  {
+			  echo "console.log(";
+			  echo "hello";
+			  echo ");";
+		  }
+		  
+		  ?>
+	}
+</script>
 </body>
 
 </html>

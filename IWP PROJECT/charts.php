@@ -1,3 +1,6 @@
+<?php 
+include('connection.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Charts</title>
+    <title>Admin Charts</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +38,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Quimpress Admin <sup>2</sup></div>
             </a>
 
             <!-- Divider -->
@@ -483,37 +486,14 @@
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-bar-demo.js"></script>
+    
+   
 <script>
     // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-function number_format(number, decimals, dec_point, thousands_sep) {
-  // *     example: number_format(1234.56, 2, ',', ' ');
-  // *     return: '1 234,56'
-  number = (number + '').replace(',', '').replace(' ', '');
-  var n = !isFinite(+number) ? 0 : +number,
-    prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
-    sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
-    dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
-    s = '',
-    toFixedFix = function(n, prec) {
-      var k = Math.pow(10, prec);
-      return '' + Math.round(n * k) / k;
-    };
-  // Fix for IE parseFloat(0.55).toFixed(0) = 0;
-  s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
-  if (s[0].length > 3) {
-    s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
-  }
-  if ((s[1] || '').length < prec) {
-    s[1] = s[1] || '';
-    s[1] += new Array(prec - s[1].length + 1).join('0');
-  }
-  return s.join(dec);
-}
+
 
 // Area Chart Example
 var ctx = document.getElementById("myAreaChart");
@@ -537,15 +517,19 @@ var myLineChart = new Chart(ctx, {
       pointHitRadius: 10,
       pointBorderWidth: 2,
       <?php 
-      $q=$db->query("SELECT MONTH(Time) as month,COUNT(*) as count FROM user_signin GROUP BY MONTH(Time)");
+            $q=$db->query("SELECT MONTH(Time) as month,COUNT(*) as count FROM user_signin1 WHERE YEAR(Time)=2021 GROUP BY MONTH(Time)");
+            $arr=array(0,0,0,0,0,0,0,0,0,0,0,0);
             while($r=$q->fetch(PDO::FETCH_OBJ))
             {
-               // $arrMonth=$r->month;
-                //$arrCount=$r->count;
-                //$arr[$arrMonth-1]=$arrCount;
+                $arr[$r->month-1]=$r->count;
             }
-        ?>
-      data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+            
+               
+            
+    ?>
+      data: [<?= $arr[0]; ?>,<?= $arr[1]; ?>, <?= $arr[2]; ?>,<?= $arr[3]; ?>, <?= $arr[4]; ?>,<?= $arr[5]; ?>,<?= $arr[6]; ?>, <?= $arr[7]; ?>,<?= $arr[8]; ?>,<?= $arr[9]; ?>,<?= $arr[10]; ?>,<?= $arr[11]; ?>],
+
+      
     }],
   },
   options: {
@@ -575,9 +559,8 @@ var myLineChart = new Chart(ctx, {
         ticks: {
           maxTicksLimit: 5,
           padding: 10,
-          // Include a dollar sign in the ticks
           callback: function(value, index, values) {
-            return '$' + number_format(value);
+            return value;
           }
         },
         gridLines: {
@@ -609,13 +592,59 @@ var myLineChart = new Chart(ctx, {
       callbacks: {
         label: function(tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return tooltipItem.yLabel;
         }
       }
     }
   }
 });
 
+</script>
+<script>
+    // Set new default font family and font color to mimic Bootstrap's default styling
+Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+Chart.defaults.global.defaultFontColor = '#858796';
+
+// Pie Chart Example
+var ctx = document.getElementById("myPieChart");
+var myPieChart = new Chart(ctx, {
+  type: 'doughnut',
+  data: {
+    labels: ["CV", "Portfolio"],
+    datasets: [{
+        <?php 
+            $q=$db->query("SELECT Type,COUNT(*) as count FROM user_signin1 GROUP BY Type");
+            $arr=array(0,0);
+            $i=0;
+            while($r=$q->fetch(PDO::FETCH_OBJ))
+            {
+                $arr[$i++]=$r->count;
+            }
+        ?>
+      data: [<?=$arr[0]?>,<?=$arr[1]?>],
+      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
+      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      hoverBorderColor: "rgba(234, 236, 244, 1)",
+    }],
+  },
+  options: {
+    maintainAspectRatio: false,
+    tooltips: {
+      backgroundColor: "rgb(255,255,255)",
+      bodyFontColor: "#858796",
+      borderColor: '#dddfeb',
+      borderWidth: 1,
+      xPadding: 15,
+      yPadding: 15,
+      displayColors: false,
+      caretPadding: 10,
+    },
+    legend: {
+      display: false
+    },
+    cutoutPercentage: 80,
+  },
+});
 </script>
 </body>
 

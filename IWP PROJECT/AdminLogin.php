@@ -35,7 +35,7 @@ include('connection.php')
             {  
                 $un=$_POST['un'];
                  $ps=$_POST['ps'];
-                 $q=$db->prepare("SELECT *FROM admin WHERE UID='$un' && Pass='$ps'");
+                 $q=$db->prepare("SELECT *FROM admin1 WHERE UID='$un' && Pass='$ps'");
                  $q->execute();
                  $res=$q->fetchAll(PDO::FETCH_OBJ);
                  if($res)

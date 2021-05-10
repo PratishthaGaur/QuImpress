@@ -77,7 +77,7 @@ if(isset($_POST['sub']))
             $UserID=$_POST['us'];
             $Password=$_POST['psw'];
 
-            $q=$db->prepare("INSERT INTO signup (FirstName,LastName,Email,DOB,UID,Pass) VALUES(:Fn,:Ln,:email,:DOB,:us,:psw)");
+            $q=$db->prepare("INSERT INTO signup1 (FirstName,LastName,Email,DOB,UID,Pass) VALUES(:Fn,:Ln,:email,:DOB,:us,:psw)");
             $q->bindValue('Fn',$FName);
             $q->bindValue('Ln',$LName);
             $q->bindValue('DOB',$DOB);
@@ -99,12 +99,12 @@ if(isset($_POST['sub']))
           $un=$_POST['UID'];
           $ps=$_POST['Pass'];
           $type=$_POST['choice'];
-                $q1=$db->prepare("SELECT *FROM signup WHERE UID='$un' && Pass='$ps'");
+                $q1=$db->prepare("SELECT *FROM signup1 WHERE UID='$un' && Pass='$ps'");
                  $q1->execute();
                  $res=$q1->fetchAll(PDO::FETCH_OBJ);
                  if($res)
                  {
-                    $q2=$db->prepare("INSERT INTO user_signin (UserID,Type) VALUES(:UID,:choice)");
+                    $q2=$db->prepare("INSERT INTO user_signin1 (UserID,Type) VALUES(:UID,:choice)");
                     $q2->bindValue('UID',$un);
                     $q2->bindValue('choice',$type);
                     if($q2->execute())

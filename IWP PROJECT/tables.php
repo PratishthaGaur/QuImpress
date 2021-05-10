@@ -174,7 +174,7 @@ include('connection.php');
                                         
                                     </tr>
                                     <?php
-                                    $q=$db->query("SELECT * FROM signup INNER JOIN user_signin ON signup.UID=user_signin.UserID");
+                                    $q=$db->query("SELECT * FROM signup1 INNER JOIN user_signin1 ON signup1.UID=user_signin1.UserID");
                                     while($r=$q->fetch(PDO::FETCH_OBJ))
                                     {
                                       ?>
