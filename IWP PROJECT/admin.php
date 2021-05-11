@@ -1,5 +1,6 @@
 <?php 
 include('connection.php');
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,10 +50,7 @@ include('connection.php');
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
+            
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -63,12 +61,7 @@ include('connection.php');
                 </div>
             </li>
 
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.php">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
+           
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
@@ -122,18 +115,7 @@ include('connection.php');
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Settings
-                                </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
-                                </a>
+                                
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -159,7 +141,36 @@ include('connection.php');
 
                     <!-- Content Row -->
                     <div class="row">
+                    <?php 
+                                    $q=$db->query("SELECT COUNT(*) as count FROM user_signin1");
+                                    $q1=$db->query("SELECT COUNT(*) as count FROM download1");
+                                    $r=$q->fetch(PDO::FETCH_OBJ);
+                                    $r1=$q1->fetch(PDO::FETCH_OBJ);
+                                    $per=(($r1->count)/($r->count))*100;
+                                    $per=number_format($per,2);
+                                    
+                                    $q2=$db->query("SELECT COUNT(*) as count FROM download1 WHERE type_id='1'");
+                                    $r2=$q2->fetch(PDO::FETCH_OBJ);
+                                    $per1=(($r2->count)/($r1->count))*100;
+                                    $per1=number_format($per1,2);
+                                    
+                                    $q3=$db->query("SELECT COUNT(*) as count FROM download1 WHERE type_id='2'");
+                                    $r3=$q3->fetch(PDO::FETCH_OBJ);
+                                    $per2=(($r3->count)/($r1->count))*100;
+                                    $per2=number_format($per2,2);
+                                    
+                                    $q4=$db->query("SELECT COUNT(*) as count FROM download1 WHERE type_id='3'");
+                                    $r4=$q4->fetch(PDO::FETCH_OBJ);
+                                    $per3=(($r4->count)/($r1->count))*100;
+                                    $per3=number_format($per3,2);
+                                    
+                                    $q5=$db->query("SELECT COUNT(*) as count FROM download1 WHERE type_id='4'");
+                                    $r5=$q5->fetch(PDO::FETCH_OBJ);
+                                    $per4=(($r5->count)/($r1->count))*100;
+                                    $per4=number_format($per4,2);
 
+
+                                    ?>
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -167,8 +178,8 @@ include('connection.php');
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Total Visits</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$r->count?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -185,11 +196,11 @@ include('connection.php');
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Total Downloads</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$r1->count?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                        <i class="fas fa-download"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -198,45 +209,33 @@ include('connection.php');
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
-                                            </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                CV Downloads</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$r2->count+ $r3->count?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                        <i class="fas fa-download"></i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <!-- Pending Requests Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Portfolio Downloads</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=$r4->count+ $r5->count?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        <i class="fas fa-download"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -254,7 +253,7 @@ include('connection.php');
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Visits per Month</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -271,7 +270,7 @@ include('connection.php');
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">CV/Portfolio Downloads</h6>
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
@@ -280,14 +279,12 @@ include('connection.php');
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <i class="fas fa-circle text-primary"></i> CV
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                            <i class="fas fa-circle text-success"></i> Portfolio
                                         </span>
-                                        <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
-                                        </span>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -306,34 +303,35 @@ include('connection.php');
                                     <h6 class="m-0 font-weight-bold text-primary">Projects</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Server Migration <span
-                                            class="float-right">20%</span></h4>
+                                   
+                                    <h4 class="small font-weight-bold">CV1 Downloads<span
+                                            class="float-right"><?=$per1."%"?></span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 20%"
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?=$per1."%"?>"
                                             aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Sales Tracking <span
-                                            class="float-right">40%</span></h4>
+                                    <h4 class="small font-weight-bold">CV2 Downloads<span
+                                            class="float-right"><?=$per2."%"?></span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: <?=$per2."%"?>"
                                             aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Customer Database <span
-                                            class="float-right">60%</span></h4>
+                                    <h4 class="small font-weight-bold">Portfolio1 Downloads <span
+                                            class="float-right"><?=$per3."%"?></span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar" role="progressbar" style="width: 60%"
+                                        <div class="progress-bar" role="progressbar" style="width:<?=$per3."%"?>"
                                             aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Payout Details <span
-                                            class="float-right">80%</span></h4>
+                                    <h4 class="small font-weight-bold">Portfolio2 Downloads<span
+                                            class="float-right"><?=$per4."%"?></span></h4>
                                     <div class="progress mb-4">
-                                        <div class="progress-bar bg-info" role="progressbar" style="width: 80%"
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: <?=$per4."%"?>"
                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
-                                    <h4 class="small font-weight-bold">Account Setup <span
-                                            class="float-right">Complete!</span></h4>
+                                    <h4 class="small font-weight-bold">Total Downloads<span
+                                            class="float-right"><?= $per."%"?></span></h4>
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%"
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: <?= $per."%"?>"
                                             aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                 </div>
@@ -371,7 +369,7 @@ include('connection.php');
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="AdminLogin.php">Logout</a>
                 </div>
             </div>
         </div>
@@ -516,7 +514,7 @@ var myPieChart = new Chart(ctx, {
     labels: ["CV", "Portfolio"],
     datasets: [{
         <?php 
-            $q=$db->query("SELECT Type,COUNT(*) as count FROM user_signin1 GROUP BY Type");
+            $q=$db->query("SELECT Type,COUNT(*) as count FROM download1 GROUP BY Type");
             $arr=array(0,0);
             $i=0;
             while($r=$q->fetch(PDO::FETCH_OBJ))

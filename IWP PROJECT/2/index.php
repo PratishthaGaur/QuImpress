@@ -1,3 +1,7 @@
+<?php 
+include('connection.php');
+
+ ?>
 <html>
 <head>
 	<title>Resume Builder</title>
@@ -24,8 +28,9 @@
 			<div id="panel">
 					<h3 class="text-center" data-toggle="modal">Resume</h3>
              <!--   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button> -->
-				<button class="btn btn-block btn-success" onclick="window.print()">PRINT AS PDF</button>
-
+			 <form method="POST" name="form3">
+				<button type="submit" class="btn btn-block btn-success" name="sub" onclick="window.print()">Download</button>
+				</form>
 				<hr>
 
 				<h4 class="text-center">Template settings</h4>
@@ -493,6 +498,20 @@ Worked in System Design, System Testing & API integration from scratch.</div>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/header.js"></script>
+<?php
+
+if(isset($_POST['sub']))
+{
+  $Type="CV";
+ $type_id=2;
+
+$q=$db->prepare("INSERT INTO download1(Type,type_id) VALUES(:Type,:type_id)");
+
+$q->bindValue('Type',$Type); 
+$q->bindValue('type_id',$type_id);
+$q->execute();
+}         
+?>
 
 </body>
 

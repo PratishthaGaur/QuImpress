@@ -1,5 +1,6 @@
 <?php 
-include('connection.php')
+include('connection.php');
+
  ?>
 
 <!DOCTYPE html>
@@ -104,16 +105,17 @@ if(isset($_POST['sub']))
                  $res=$q1->fetchAll(PDO::FETCH_OBJ);
                  if($res)
                  {
+                    
                     $q2=$db->prepare("INSERT INTO user_signin1 (UserID,Type) VALUES(:UID,:choice)");
                     $q2->bindValue('UID',$un);
                     $q2->bindValue('choice',$type);
                     if($q2->execute())
                     {
-                        echo "<script>alert('Info Inserted Successfully')</script>";
+                      
                        if($type=='CV')
-                          header("Location:CVCatalouge.html");
+                          header("Location:CVCatalouge.php");
                        else
-                         header("Location:portfolio_page.html");
+                         header("Location:portfolio_page.php");
                     }
                  }
                  else

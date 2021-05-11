@@ -1,6 +1,8 @@
 
 <?php 
-include('connection.php')
+include('connection.php');
+
+
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +42,8 @@ include('connection.php')
                  $res=$q->fetchAll(PDO::FETCH_OBJ);
                  if($res)
                  {
-                    header("Location:admin.html");
+                    
+                    header("Location:admin.php");
                  }
                  else
                  {
