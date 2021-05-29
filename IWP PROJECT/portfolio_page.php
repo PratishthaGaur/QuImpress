@@ -20,7 +20,7 @@ include('connection.php');
                 <!--Welcome link will refresh page. Rest will direct to new page-->                    
                 <li><a href="welcome.html">Welcome</a></li>                    
                 <li><a href="AboutUS.html">About Us</a></li>                    
-                <li><a href="AboutUS.html">Job Search</a></li>                    
+                <li><a href="Jobsearch1.php">Job Search</a></li>                    
                 <li><a href="welcome.html">Logout</a></li>                    
                                
             </ul>        

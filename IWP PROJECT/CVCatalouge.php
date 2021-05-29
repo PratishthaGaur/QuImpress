@@ -23,7 +23,7 @@
                     <!--Welcome link will refresh page. Rest will direct to new page-->
                     <li id="Welcome"><a href="welcome.html">Welcome</a></li>
                     <li><a href="AboutUS.html">About Us</a></li>
-                    <li><a href="AboutUS.html">Job Search</a></li>
+                    <li><a href="Jobsearch1.php">Job Search</a></li>
                     <li><a href="welcome.html">Logout</a></li>
                     
                 </ul>
@@ -55,7 +55,7 @@
                 </div>
                 <!-- 2nd Catalouge -->
                 <div class="grid-column span-half pt3 pb3 mobile-m order-4">
-                    <a href="2/index.html"><h3>Modern Resume</h3></a>
+                    <a href="2/index.php"><h3>Modern Resume</h3></a>
                     <p>Modern Resume For instance, in place of an “objective” statement, you might strategically place keywords in a summary section so an applicant tracking system will sort your resume into the proper category.</p>
                 </div>
                 <div class="grid-column span-half pt3 pb3 mobile-m order-3">
