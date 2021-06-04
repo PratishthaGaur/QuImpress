@@ -240,3 +240,6 @@ hr{border:0;border-top:1px solid #5a5661;display:block;height:1px}
     text-decoration: none;
      font-size: 18px;
 }
+.checked{
+	color: orange;
+}

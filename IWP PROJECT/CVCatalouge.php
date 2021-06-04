@@ -1,7 +1,10 @@
+
+<?php 
+include('connection.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        
         <!-- Meta -->
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -15,6 +18,8 @@
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
         <!-- favicon.ico.-->
         <link rel="shortcut icon" href="favicon.ico">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
     <body>
         <div class="header">
@@ -41,6 +46,14 @@
     <main>  
         <div class="container">
             <!-- Info -->
+            <?php
+            $q1=$db->prepare("SELECT AVG(Rating) as avg1 from feedback1 WHERE CatalogNo='1'");
+            $q1->execute();
+            $r1=$q1->fetch();
+            $q2=$db->prepare("SELECT AVG(Rating) as avg2 from feedback1 WHERE CatalogNo='2'");
+            $q2->execute();
+            $r2=$q2->fetch();
+            ?>
             <section class="grid-row grid-row--center">
                 <!-- 1st Catalouge-->
                 <div class="grid-column span-half pt3 pb3 mobile-m order-1">
@@ -50,12 +63,22 @@
                     </div>
                 </div>
                 <div class="grid-column span-half pt3 pb3 mobile-m order-2">
-                    <a href="1/index.php"><h3>Standard Resume</h3></a>
+                    <a href="1/index.php"><h3>Standard Resume</h3></a>    
+                    <span id="1" class="fa fa-star"></span> 
+                    <span id="2" class="fa fa-star"></span> 
+                    <span id="3" class="fa fa-star"></span> 
+                    <span id="4" class="fa fa-star"></span> 
+                    <span id="5" class="fa fa-star"></span>              
                     <p>Standard Resume don’t use fancy formats or new technology to impress potential employers. These are good for more traditional industries like Government contracting firms, consulting firms, law firms, accounting firms, for example, all expect more traditional resumes</p>
                 </div>
                 <!-- 2nd Catalouge -->
                 <div class="grid-column span-half pt3 pb3 mobile-m order-4">
                     <a href="2/index.php"><h3>Modern Resume</h3></a>
+                    <span id="6" class="fa fa-star"></span> 
+                    <span id="7" class="fa fa-star"></span> 
+                    <span id="8" class="fa fa-star"></span> 
+                    <span id="9" class="fa fa-star"></span> 
+                    <span id="10" class="fa fa-star"></span>   
                     <p>Modern Resume For instance, in place of an “objective” statement, you might strategically place keywords in a summary section so an applicant tracking system will sort your resume into the proper category.</p>
                 </div>
                 <div class="grid-column span-half pt3 pb3 mobile-m order-3">
@@ -65,6 +88,17 @@
                     </div>
                 </div>
             </section>
-           
+           <?php
+                for($i=1;$i <=$r1['avg1'] ;$i++){
+                    echo"<script>";
+                    echo "document.getElementById(`$i`).className = 'fa fa-star checked'";
+                    echo"</script>";
+                }
+                for($i=6;$i <=$r2['avg2']+5 ;$i++){
+                    echo"<script>";
+                    echo "document.getElementById(`$i`).className = 'fa fa-star checked'";
+                    echo"</script>";
+                }
+           ?>
     </body>
 </html>

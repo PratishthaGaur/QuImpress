@@ -51,6 +51,7 @@ z-index: 100;
     font-size: 25px;
     font-family: cursive;
     z-index: 0;
+    padding-right: 7px;
 }
  
 .title2{
@@ -66,6 +67,7 @@ z-index: 100;
     font-size: 25px;
     font-family: cursive;
     z-index: 0;
+    padding-left: 7px;
 }
 .box .preview{
     background-color: #4CAF50;
@@ -131,4 +133,13 @@ button:hover{
 .logo{
     color: white;
     font-size: 30px;
+}
+.checked1{
+    color: rgb(230, 48, 87);
+}
+.checked2{
+    color:orange;
+}
+.fa{
+text-decoration: none;
 }

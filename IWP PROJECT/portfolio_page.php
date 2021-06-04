@@ -10,6 +10,7 @@ include('connection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Portfolio That suits you best!</title>
     <link rel="stylesheet" href="portfolio_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <!--Outer most div tag or background-->
@@ -27,12 +28,19 @@ include('connection.php');
         </div> 
     <header>
         <!--Header-->
-        
    <span>
     <br> <br> <br> <br> <br>
       <h1> Welcome to <br>Portfolio Catalouge</h1>
     </span>
     </header>
+    <?php
+        $q1=$db->prepare("SELECT AVG(Rating) as avg1 from feedback1 WHERE CatalogNo='3'");
+        $q1->execute();
+        $r1=$q1->fetch();
+        $q2=$db->prepare("SELECT AVG(Rating) as avg2 from feedback1 WHERE CatalogNo='4'");
+        $q2->execute();
+        $r2=$q2->fetch();
+    ?>
     <section>
     <div class="section1">
         <!--First item in catalouge. Click the image to direct to preview and code for item-->
@@ -43,7 +51,12 @@ include('connection.php');
             <form method="POST" name="form1">
             <button type="submit" class="customize" name="sub">Customize</button>
             </form>
-            <br><br><br> Especially for <br> Graphic designer
+            <br><br><br> Especially for <br> Graphic designer <br>
+            <span id="1" class="fa fa-star"></span> 
+            <span id="2" class="fa fa-star"></span> 
+            <span id="3" class="fa fa-star"></span> 
+            <span id="4" class="fa fa-star"></span> 
+            <span id="5" class="fa fa-star"></span>
         </div>
     </div>
     <div class="section2">
@@ -54,11 +67,28 @@ include('connection.php');
             <form method="POST" name="form2">
             <button type="submit" class="customize" name="sub1">Customize</button>
             </form>
-            <br><br><br>Especially for <br>Web Developer</div>
+            <br><br><br>Especially for <br>Web Developer <br>
+            <span id="6" class="fa fa-star"></span> 
+            <span id="7" class="fa fa-star"></span> 
+            <span id="8" class="fa fa-star"></span> 
+            <span id="9" class="fa fa-star"></span> 
+            <span id="10" class="fa fa-star"></span> 
+        </div>
     </div>
     </section>
     </div>
-    
+    <?php
+        for($i=1;$i <=$r1['avg1'] ;$i++){
+            echo"<script>";
+            echo "document.getElementById(`$i`).className = 'fa fa-star checked1'";
+             echo"</script>";
+        }
+        for($i=6;$i <=$r2['avg2']+5 ;$i++){
+            echo"<script>";
+            echo "document.getElementById(`$i`).className = 'fa fa-star checked2'";
+            echo"</script>";
+        }
+    ?>
         <?php
 
           if(isset($_POST['sub']))
