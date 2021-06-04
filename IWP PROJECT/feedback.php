@@ -1,5 +1,6 @@
 <?php 
 include('connection.php');
+session_start();
  ?>
 
 <!DOCTYPE html>
@@ -45,17 +46,21 @@ include('connection.php');
     <?php
     if(isset($_POST['submit'])){
         $Rating=$_POST['rating'];
-        echo $Rating;
+        
         $Review=$_POST['commentText'];
-        $q=$db->prepare("INSERT INTO feedback1 (Rating,Review) VALUES(:Rating,:Review)");
-                   // $q->bindValue('CatalogNo',$catalog);
-                    //$q->bindValue('Type',$type);
+        $CatalogNo=$_SESSION["val"];
+        $Type=$_SESSION["type"];
+        $q=$db->prepare("INSERT INTO feedback1 (CatalogNo,Type,Rating,Review) VALUES(:CatalogNo,:Type,:Rating,:Review)");
+                   $q->bindValue('CatalogNo',$CatalogNo);
+                    $q->bindValue('Type',$Type);
                     $q->bindValue('Rating',$Rating);
                     $q->bindValue('Review',$Review);
                     if($q->execute())
                     {
                         echo("Thank You For feedback");
-                        //header("Location:welcome.html");
+                        session_unset();
+                        session_destroy();
+                        header("Location:welcome.html");
                     }
                     else{
                         echo("Error");
