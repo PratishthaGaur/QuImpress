@@ -3,7 +3,7 @@
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 550px;
+    height: 650px;
    }
    .layer {
     background-color: rgba(0, 0, 0, 0.7);
@@ -11,12 +11,12 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 550px;
+    height: 650px;
    }
    .title{
     text-align:center;
     font-size: 30px;
-    padding-top: 100px;
+    padding-top: 175px;
     color: white;
     }
     .container{
@@ -108,7 +108,11 @@
       color: white;
     }
     body{
-      background-color:rgb(113, 221, 224) ;
+        /*background-color: #007FFF;
+        color: white;*/
+        /*background-color:rgb(204, 204, 204) ;*/
+      background-color:rgb(255, 204, 153) ;
+     /* background-color:rgb(113, 221, 224) ;*/
       margin-bottom: 200px;
       
     }

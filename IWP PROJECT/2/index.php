@@ -1,6 +1,8 @@
 <?php 
 include('connection.php');
-
+session_start();
+$_SESSION["val"]="2";
+$_SESSION["type"]="CV";
  ?>
 <html>
 <head>
@@ -26,6 +28,10 @@ include('connection.php');
 	<div class="row">
 		<div class="col-sm-3 no-print" id="left">
 			<div id="panel">
+			<form action="/IWP Project/feedback.php">
+				<button type="submit" class="btn btn-block btn-danger" name="sub" >Logout</button>
+			</form>
+<!-- /Quimpress/IWP Project/feedback.php -->
 					<h3 class="text-center" data-toggle="modal">Resume</h3>
              <!--   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button> -->
 			 <form method="POST" name="form3">

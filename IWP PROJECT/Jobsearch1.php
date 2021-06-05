@@ -16,7 +16,7 @@
   </head>
   <body>
   <header>
-    <a href="welcome.html" class="logo">Qu-Impress</a>
+    <a href="welcome.html" class="logo">QuImpress</a>
         <ul>
             <!--Welcome link will refresh page. Rest will direct to new page-->
             <li ><a href="welcome.html">Welcome</a></li>

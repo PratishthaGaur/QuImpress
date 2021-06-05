@@ -1,6 +1,6 @@
 <?php 
 include('connection.php');
-
+session_start();
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +102,7 @@ include('connection.php');
 		  $q->bindValue('type_id',$type_id);
 		  if($q->execute())
             {
-                header("Location:trial2.html");
+                header("Location:trial2.php");
             }
             else
             {
@@ -121,7 +121,7 @@ include('connection.php');
 		  $q->bindValue('type_id',$type_id);
 		  if($q->execute())
             {
-                header("Location:trial.html");
+                header("Location:trial.php");
             }
             else
             {
