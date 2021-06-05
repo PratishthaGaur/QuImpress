@@ -32,7 +32,6 @@ $_SESSION["type"]="CV";
 				<button type="submit" class="btn btn-block btn-danger" name="sub" >Logout</button>
 			</form>
 <!-- /Quimpress/IWP Project/feedback.php -->
-			
 					<h3 class="text-center" data-toggle="modal">Resume</h3>
              <!--   <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#usageModal">VIEW INSTRUCTIONS</button> -->
 			 <form method="POST" name="form3">

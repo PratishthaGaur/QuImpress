@@ -28,7 +28,7 @@ $_SESSION["type"]="CV";
 	<div class="row">
 		<div class="col-sm-3 no-print" id="left">
 			<div id="panel">
-			<form action="/IWP Project/feedback.php">
+				<form action="/IWP Project/feedback.php">
 				<button type="submit" class="btn btn-block btn-danger" name="sub" >Logout</button>
 			</form>
 <!-- /Quimpress/IWP Project/feedback.php -->
