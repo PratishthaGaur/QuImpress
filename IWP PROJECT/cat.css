@@ -1,0 +1,40 @@
+body{
+    background-image: url('Cat-background.jpg');
+    width: 100%;
+    height: fit-content;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14pt;
+}
+.main{
+    width: 70%;
+    float: right;
+    margin-top: 1em;
+    display: flex;
+}
+h1{
+    background-color: yellow;
+    border: 5px solid orange;
+    width: fit-content;
+}
+.left{
+    display: inline-block;
+    width: 70%;
+}
+img{
+    float: left;
+    padding-right: 1em;
+}
+.right{
+    display: inline-block;
+    width: 20%;
+    margin-right: 1em;
+    height: fit-content;
+    border: 5px solid red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 9pt;
+    margin-left: 1em;
+    padding: 1em;
+}
+.right li{
+    font-style: italic;
+}
